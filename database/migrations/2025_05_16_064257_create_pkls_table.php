@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pkls', function (Blueprint $table) {
             $table->id();
-            $table->foreindId('guru_id')->constrained('gurus')->onDelete('restrict');
-            $table->foreindId('industri_id')->constrained('industris')->onDelete('restrict');
-            $table->foreindId('siswa_id')->constrained('siswas')->onDelete('restrict');
+            $table->foreignId('guru_id')->constrained('gurus')->onDelete('restrict');
+            $table->foreignId('industri_id')->constrained('industris')->onDelete('restrict');
+            $table->foreignId('siswa_id')->constrained('siswas')->onDelete('restrict');
             $table->date('mulai');
             $table->date('selesai');
             $table->timestamps();
