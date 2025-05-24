@@ -20,8 +20,6 @@ return new class extends Migration
             $table->date('selesai');
             $table->timestamps();
 
-            $table->unique('siswa_id');
-
         });
     }
 

@@ -10,4 +10,9 @@ class Siswa extends Model
     use HasFactory;
     protected $fillable = ['nama', 'nis', 'gender', 'rombel', 'alamat', 'kontak', 'email', 'foto', 'status_lapor_pkk'];
  
+
+    public function pkls()
+    {
+        return $this->hasMany(Pkl::class);
+    }
 }

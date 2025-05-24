@@ -9,4 +9,9 @@ class Guru extends Model
 {
     use HasFactory;
     protected $fillable = ['nama', 'nip', 'gender', 'alamat', 'kontak', 'email'];
+
+    public function pkls()
+    {
+        return $this->hasMany(Pkl::class);
+    }
 }
