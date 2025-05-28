@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Siswa extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama', 'nis', 'gender', 'rombel', 'alamat', 'kontak', 'email', 'foto', 'status_lapor_pkk'];
+    
+    protected $fillable = ['nama', 'nis', 'gender', 'rombel', 'alamat', 'kontak', 'email', 'foto', 'status_lapor_pkl'];
  
 
     public function pkls()

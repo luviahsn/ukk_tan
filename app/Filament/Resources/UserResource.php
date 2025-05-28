@@ -26,7 +26,7 @@ class UserResource extends Resource
                 Forms\Components\Grid::make(2) // form dibagi jadi 2 kolom per baris
                 ->schema([
                     // nama
-                    Forms\Components\TextInput::make('nama')
+                    Forms\Components\TextInput::make('name')
                         ->label('Nama')                      // ada di atas form
                         ->placeholder('Nama')          // ada di dalam form
                         ->required(),
@@ -34,7 +34,7 @@ class UserResource extends Resource
                     // email
                     Forms\Components\TextInput::make('email')
                         ->label('Email')                    // ada di atas form
-                        ->placeholder('Email Guru')       // ada di dalam form
+                        ->placeholder('Email')       // ada di dalam form
                         ->email()
                         ->required(),
 
