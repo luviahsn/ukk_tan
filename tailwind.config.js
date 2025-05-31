@@ -13,11 +13,16 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+        fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+        },
         },
     },
-
-    plugins: [forms, typography],
+    // pastikan semua path ke Blade/JS sudah sesuai
+    content: [
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
+    plugins: [],
 };

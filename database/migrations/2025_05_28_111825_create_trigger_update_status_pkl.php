@@ -18,7 +18,7 @@ return new class extends Migration
             AFTER INSERT ON pkls 
             FOR EACH ROW
             BEGIN
-                UPDATE siswa 
+                UPDATE siswas
                 SET status_lapor_pkl = TRUE
                 WHERE id = NEW.siswa_id; 
             END
@@ -30,7 +30,7 @@ return new class extends Migration
             AFTER DELETE ON pkls 
             FOR EACH ROW
             BEGIN
-                UPDATE siswa 
+                UPDATE siswas
                 SET status_lapor_pkl = FALSE
                 WHERE id = OLD.siswa_id; 
             END

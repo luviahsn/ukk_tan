@@ -47,8 +47,8 @@ class GuruResource extends Resource
                     Forms\Components\Select::make('gender')
                         ->label('Jenis Kelamin')            // ada di atas form
                         ->options([
-                            'L' => 'Laki-Laki',
-                            'P' => 'Perempuan',
+                            'Laki-Laki' => 'Laki-Laki',
+                            'Perempuan' => 'Perempuan',
                         ])
 
                         ->native(false)
@@ -76,6 +76,7 @@ class GuruResource extends Resource
                     Forms\Components\TextInput::make('alamat')
                         ->label('Alamat')                   // ada di atas form
                         ->placeholder('Alamat Guru')    // ada di dalam form
+                        ->columnspan(2)
                         ->required(),
 
                          ])

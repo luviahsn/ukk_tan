@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pkl extends Model
 {
-        use HasFactory;
-        
+        use HasFactory;        
         protected $fillable = ['siswa_id', 'guru_id', 'industri_id', 'mulai', 'selesai'];
 
         // Relasi ke guru

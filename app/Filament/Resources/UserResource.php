@@ -47,10 +47,12 @@ class UserResource extends Resource
 
                     // password
                     Forms\Components\TextInput::make('password')
-                        ->label('Sandi')                    // ada di atas form
-                        ->placeholder('Sandi')       // ada di dalam form
+                        ->label('Sandi')
+                        ->placeholder('Biarkan kosong jika tidak ingin mengubah')
                         ->password()
-                        ->required(),
+                        ->dehydrateStateUsing(fn($state) => filled($state) ? bcrypt($state) : null)
+                        ->dehydrated(fn($state) => filled($state))
+                        ->required(fn($livewire) => $livewire instanceof \Filament\Resources\Pages\CreateRecord),
 
                     // roles
                     Forms\Components\Select::make('roles')

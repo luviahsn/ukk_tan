@@ -21,10 +21,24 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            //email ditambah pada unique:users -> email hrs unik dalam tabel users kolom email
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'], 
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-        ])->validate();
+        ])->validate(); //memeriksa apakah data yg diberikan sesuai dengan role yg ditentukan
+
+        //mengecek apakah email yg dimasukan oleh pengguna ada pada tabel siswa di database
+        //jika tanpa pentung logikanya jadi -> jika pengguna registrasi dengan menginputkan email yg di table siswa maka blabla
+        //jika pakai pentung logikanya jaid -> jika pengguna registrasi TIDAK dengan menginputkan email yg di table siswa maka blabla
+        if (!Siswa::where('email', $input['email'])->exist()) {
+                                                    //->exist() logikanya -> jika ada, maka mengembalikan true, jika tidak ada ya mengembalikann false
+                                                    //jika email sama sekali tidak ada di tabel siswa,
+                                                    //maka validationexception akan dilempar lalu pesan kesalahan ditampilkan untuk email
+            throw ValidationException::withMessages([
+                'email' => 'Email ini tidak terdaftar sebagai siswa'
+            ]);
+        }
+
 
         return User::create([
             'name' => $input['name'],
