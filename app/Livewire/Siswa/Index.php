@@ -55,8 +55,8 @@ class Index extends Component
     public function render()
     {
         $genders = [
-            'Laki-Laki' => 'Laki-Laki',
-            'Perempuan' => 'Perempuan',
+            'L' => 'Laki-Laki',
+            'P' => 'Perempuan',
         ];
 
         $rombels = [
@@ -90,7 +90,7 @@ class Index extends Component
             $query->orderBy('nama', 'desc');
         }
 
-        $siswas = $query->paginate(10);
+        $siswas = $query->paginate(5);
 
         return view('livewire.siswa.index', [
             'siswas' => $siswas,

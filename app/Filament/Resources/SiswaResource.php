@@ -51,8 +51,8 @@ class SiswaResource extends Resource
                     Forms\Components\Select::make('gender')
                         ->label('Jenis Kelamin')            // ada di atas form
                         ->options([
-                            'Laki-Laki' => 'Laki-Laki',
-                            'Perempuan' => 'Perempuan',
+                            'L' => 'Laki-Laki',
+                            'P' => 'Perempuan',
                         ])
                         ->native(false)
                         ->required(),
@@ -118,6 +118,7 @@ class SiswaResource extends Resource
                 Tables\Columns\TextColumn::make('gender')
                     ->label('Gender')
                     ->searchable()
+                    ->formatStateUsing(fn ($state) => DB::select("select getGenderCode(?) AS gender", [$state])[0]->gender)
                     ->sortable(),
 
                 // rombel
@@ -149,8 +150,8 @@ class SiswaResource extends Resource
                 Tables\Filters\SelectFilter::make('gender')
                     ->label('Jenis Kelamin')            // ada di atas form
                     ->options([
-                        'Laki-Laki' => 'Laki-Laki',
-                        'Perempuan' => 'Perempuan',
+                        'L' => 'Laki-Laki',
+                        'P' => 'Perempuan',
                     ]),
 
                 //dropdown filter

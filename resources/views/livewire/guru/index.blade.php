@@ -110,7 +110,7 @@
                             <td class="px-6 py-4">{{ $no++ }}</td>
                             <td class="px-6 py-4">{{ $guru->nama }} </td>
                             <td class="px-6 py-4">{{ $guru->nip }}</td>
-                            <td class="px-6 py-4">{{ $guru->gender }}</td>
+                            <td class="px-6 py-4">{{ $guru->gender ? \Illuminate\Support\Facades\DB::select("select getGenderCode(?) AS gender", [$state])[0]->gender :'Gender tidak tersedia'}}</td>
                             <td class="px-6 py-4">{{ $guru->alamat }}</td>
                             <td class="px-6 py-4">{{ $guru->kontak }}</td>
                             <td class="px-6 py-4">{{ $guru->email }}</td>

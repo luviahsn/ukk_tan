@@ -47,8 +47,8 @@ class Index extends Component
     public function render()
     {
         $genders = [
-            'Laki-Laki' => 'Laki-Laki',
-            'Perempuan' => 'Perempuan',
+            'L' => 'Laki-Laki',
+            'P' => 'Perempuan',
         ];
 
         $query = Guru::query();
@@ -73,7 +73,7 @@ class Index extends Component
             $query->orderBy('nama', 'desc');
         }
 
-        $gurus = $query->paginate(5);
+        $gurus = $query->paginate(3);
 
         return view('livewire.guru.index', [
             'gurus' => $gurus,

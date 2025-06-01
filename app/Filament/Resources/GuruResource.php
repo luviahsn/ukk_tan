@@ -47,8 +47,8 @@ class GuruResource extends Resource
                     Forms\Components\Select::make('gender')
                         ->label('Jenis Kelamin')            // ada di atas form
                         ->options([
-                            'Laki-Laki' => 'Laki-Laki',
-                            'Perempuan' => 'Perempuan',
+                            'L' => 'Laki-Laki',
+                            'P' => 'Perempuan',
                         ])
 
                         ->native(false)
@@ -102,6 +102,7 @@ class GuruResource extends Resource
                 // gender
                 Tables\Columns\TextColumn::make('gender')
                     ->label('Gender')
+                    ->formatStateUsing(fn ($state) => DB::select("select getGenderCode(?) AS gender", [$state])[0]->gender)
                     ->searchable()
                     ->sortable(),
 

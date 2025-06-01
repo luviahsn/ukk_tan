@@ -66,6 +66,7 @@ class PklResource extends Resource
                         ->label('Tanggal Selesai')
                         ->maxDate(now()->addYears(5))
                         ->after('mulai') // memastikan tanggal selesai tidak boleh sebelum mulai
+                        ->minDate(fn ($get) => $get('mulai') ? \Carbon\Carbon::parse($get('mulai'))->addMonth(3)->toDateString() : null)
                         ->required(),
                 ])
   

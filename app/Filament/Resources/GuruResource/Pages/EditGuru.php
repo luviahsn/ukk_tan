@@ -14,7 +14,18 @@ class EditGuru extends EditRecord
     {
         return [
             Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+            ->before(function ($record, \Filament\Actions\DeleteAction $action){
+                if($record->pkl()->exist()) {
+                    \Filament\Notifications\Notification::make()
+                        ->title('Gagal Menghapus!')
+                        ->body('Guru ini masih digunakan dalam data PKL. Hapus data PKL terkait terlebih dahulu.')
+                        ->danger()
+                        ->send();
+
+                    $action->halt(); //menghentikan eksekusi tanpa error
+                }
+            })
         ];
     }
 

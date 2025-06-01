@@ -65,7 +65,15 @@ class Create extends Component
             'guru_id' => 'required|exists:gurus,id',
             'industri_id' => 'required|exists:industris,id',
             'mulai' => 'required|date',
-            'selesai' => 'required|date|after_or_equal:mulai', // Tanggal selesai harus setelah atau sama dengan tanggal mulai
+            'selesai' => ['required', 'date', 'after_or_equal:mulai', // Tanggal selesai harus setelah atau sama dengan tanggal mulai
+                        function ($attribute, $value, $fail){
+                            $mulai = Carbon::parse($this->mulai);
+                            $selesai = Carbon::parse($value);
+
+                            if ($mulai->diffInMonths($selesai) < 3) {
+                            $fail('Durasi PKL minimal 3 bulan');
+                            }
+                        }],
         ]);
 
         // mulai transaksi database – supaya semua query berikutnya dijalankan bersama, dan bisa di-rollback kalau terjadi error
