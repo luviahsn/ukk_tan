@@ -1,5 +1,5 @@
 <div>
-    <div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6">
+    <div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6 font-poppins">
         <div class="overflow-x-auto">
 
             <!-- FILTER & SEARCH -->
@@ -128,7 +128,11 @@
                             </td>
                             <td class="px-6 py-4">{{ $siswa->nama }} </td>
                             <td class="px-6 py-4">{{ $siswa->nis }}</td>
-                            <td class="px-6 py-4">{{ $siswa->gender ? \Illuminate\Support\Facades\DB::select("select getGenderCode(?) AS gender", [$state])[0]->gender :'Gender tidak tersedia'}}</td>
+<td class="px-6 py-4">
+    {{ $siswa->gender 
+        ? \Illuminate\Support\Facades\DB::select("select getGenderCode(?) AS gender", [$siswa->gender])[0]->gender 
+        : 'Gender tidak tersedia' }}
+</td>
                             <td class="px-6 py-4">{{ $siswa->rombel }}</td>
                             <td class="px-6 py-4">{{ $siswa->alamat }}</td>
                             <td class="px-6 py-4">{{ $siswa->kontak }}</td>

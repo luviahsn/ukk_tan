@@ -1,4 +1,4 @@
-<div class="bg-gray-100 min-h-screen">
+<div class="bg-gray-100 min-h-screen font-poppins">
     <div class="pt-4">
         <div class="py-2 px-6 flex flex-col gap-y-4">
             <div class="text-lg mb-1 text-pink-700 font-semibold">

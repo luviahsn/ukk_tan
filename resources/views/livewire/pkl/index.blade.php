@@ -5,7 +5,7 @@
         x-init="setTimeout(() => show = false, 3000)"
         x-show="show"
         x-transition
-        class="mx-4 mt-6 mb-4 flex items-center justify-between rounded-lg px-4 py-3 shadow border"
+        class="mx-4 mt-6 mb-4 flex items-center justify-between rounded-lg px-4 py-3 shadow border font-poppins"
         style="background-color: #e6f4ec; border-color: #c3e6cb; color: #2e7d32;"
     >
         <div class="flex items-center space-x-2">
@@ -23,7 +23,7 @@
         x-init="setTimeout(() => show = false, 3000)"
         x-show="show"
         x-transition
-        class="mx-4 mt-6 mb-4 flex items-center justify-between rounded-lg px-4 py-3 shadow border"
+        class="mx-4 mt-6 mb-4 flex items-center justify-between rounded-lg px-4 py-3 shadow border font-poppins"
         style="background-color: #fdeaea; border-color: #f5c6cb; color: #c62828;"
     >
         <div class="flex items-center space-x-2">
@@ -37,7 +37,7 @@
 
 
 
-<div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6">
+<div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6 font-poppins">
     <div class="overflow-x-auto">
 
         <!-- BUTTON & SEARCH -->

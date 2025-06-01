@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="create" class="p-6 bg-white rounded-2xl shadow-md mx-8 my-6">
+    <form wire:submit.prevent="create" class="p-6 bg-white rounded-2xl shadow-md mx-8 my-6 font-poppins">
         <h1 class="text-xl font-bold text-pink-600 mb-1">Tambah Data PKL</h1>
         <p class="text-sm text-gray-500 mb-3">Isi form ini untuk menambahkan informasi PKL siswa.</p>
         <hr class="border-t border-pink-400 mb-4">

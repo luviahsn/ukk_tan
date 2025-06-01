@@ -1,6 +1,6 @@
 <div class="">
     <div class="mx-8 my-6">
-        <form wire:submit.prevent="update" class="p-6 bg-white rounded-2xl shadow-md">
+        <form wire:submit.prevent="update" class="p-6 bg-white rounded-2xl shadow-md-poppins">
             <h1 class="text-xl font-bold text-pink-600 mb-1">Edit Data PKL</h1>
             <p class="text-sm text-gray-500 mb-3">Ubah informasi PKL siswa di bawah ini.</p>
             <hr class="border-t border-pink-400 mb-4">
