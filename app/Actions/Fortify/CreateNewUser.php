@@ -2,9 +2,11 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 
@@ -30,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
         //mengecek apakah email yg dimasukan oleh pengguna ada pada tabel siswa di database
         //jika tanpa pentung logikanya jadi -> jika pengguna registrasi dengan menginputkan email yg di table siswa maka blabla
         //jika pakai pentung logikanya jaid -> jika pengguna registrasi TIDAK dengan menginputkan email yg di table siswa maka blabla
-        if (!Siswa::where('email', $input['email'])->exist()) {
+        if (!Siswa::where('email', $input['email'])->exists()) {
                                                     //->exist() logikanya -> jika ada, maka mengembalikan true, jika tidak ada ya mengembalikann false
                                                     //jika email sama sekali tidak ada di tabel siswa,
                                                     //maka validationexception akan dilempar lalu pesan kesalahan ditampilkan untuk email

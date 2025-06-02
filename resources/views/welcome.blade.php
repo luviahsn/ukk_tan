@@ -55,7 +55,7 @@
         </section>
 
         <!-- 📦 Footer -->
-        <footer class="bg-white text-center py-6 border-t border-pink-100 mt-10 z-10">
+        <footer class=" text-center py-6 mt-10 z-10">
             <p class="text-sm text-gray-500">
                 &copy; {{ date('Y') }} SIJAVERSE. All rights reserved.
             </p>
