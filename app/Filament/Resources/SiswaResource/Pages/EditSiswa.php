@@ -14,7 +14,8 @@ class EditSiswa extends EditRecord
     {
         return [
             Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                        ->visible(fn ($record) => !$record->status_lapor_pkl), //tombol delete nya ilang kalo siswanya mendaftar pkl
         ];
     }
 

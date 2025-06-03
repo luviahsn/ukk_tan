@@ -143,7 +143,7 @@ class SiswaResource extends Resource
                 //status_lapor_pkl
                 Tables\Columns\BadgeColumn::make('status_lapor_pkl')
                     ->label('Status PKL')
-                    ->formatStateUsing(fn ($state) => $state ? 'Aktif' : 'Tidak Aktif')
+                    ->formatStateUsing(fn ($state) => $state ? 'Mendaftar PKL' : 'Membatalkan PKL')
                     ->color(fn ($state) => $state ? 'success' : 'danger'),
             ])
             ->filters([
@@ -164,8 +164,8 @@ class SiswaResource extends Resource
                     ]),
                 
                 Tables\Filters\TernaryFilter::make('status_lapor_pkl')
-                    ->trueLabel('Aktif')
-                    ->falseLabel('Nonaktif'),
+                    ->trueLabel('Mendaftarkan PKL')
+                    ->falseLabel('membatalkan PKL'),
 
             ])
             ->actions([
@@ -176,7 +176,15 @@ class SiswaResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\BulkAction::make('hapusNonAktif')
+                        ->label('Hapus Siswa PKL')
+                        ->action(function ($records) {
+                            $records->filter(fn ($record) => $record->status_lapor_pkl == false) //di filter yg tidak daftar maka bisa
+                                    ->each->delete();
+                        })
+                        ->deselectRecordsAfterCompletion()
+                        ->requiresConfirmation()
+                        ->icon('heroicon-o-trash'),
                 ]),
             ]);
     }

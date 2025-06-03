@@ -56,7 +56,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             
              ->plugins([
-                \BezhanSalleh\FilamentShield\FilamentShieldPLugin::make(),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
             ]);
 
            

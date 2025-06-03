@@ -40,5 +40,5 @@ Route::middleware([
 });
 
 Route::get('/tungguAksesAdmin', App\Livewire\TungguAkses::class)
-    ->middleware('auth')->name('tungguAdmin')
-    ->name('MenungguAdmin');
+    ->middleware('auth')
+    ->name('tungguAdmin');

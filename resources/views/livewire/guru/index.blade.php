@@ -1,5 +1,5 @@
 <div>
-    <div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6">
+    <div class="p-6 bg-white rounded-2xl shadow-md mx-3 my-6 font-poppins">
         <div class="overflow-x-auto">
 
             <!-- FILTER & SEARCH -->

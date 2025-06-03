@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center min-h-screen bg-rose-50">
+<div class="flex items-center justify-center min-h-screen bg-rose-50 font-poppins">
     <div class="max-w-4xl w-full px-4 sm:px-6 lg:px-8 my-6">
         <div class="bg-white overflow-hidden shadow-md rounded-2xl">
             

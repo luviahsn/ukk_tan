@@ -9,6 +9,7 @@ use Livewire\Component;
 use App\Models\Industri;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class Create extends Component
 {

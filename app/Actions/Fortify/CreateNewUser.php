@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\Siswa;
 use App\Models\User;
+use App\Models\Guru;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -40,6 +41,7 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => 'Email ini tidak terdaftar sebagai siswa'
             ]);
         }
+
 
 
         // return User::create([
