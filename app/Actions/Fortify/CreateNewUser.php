@@ -33,12 +33,13 @@ class CreateNewUser implements CreatesNewUsers
         //mengecek apakah email yg dimasukan oleh pengguna ada pada tabel siswa di database
         //jika tanpa pentung logikanya jadi -> jika pengguna registrasi dengan menginputkan email yg di table siswa maka blabla
         //jika pakai pentung logikanya jaid -> jika pengguna registrasi TIDAK dengan menginputkan email yg di table siswa maka blabla
-        if (!Siswa::where('email', $input['email'])->exists()) {
-                                                    //->exist() logikanya -> jika ada, maka mengembalikan true, jika tidak ada ya mengembalikann false
-                                                    //jika email sama sekali tidak ada di tabel siswa,
-                                                    //maka validationexception akan dilempar lalu pesan kesalahan ditampilkan untuk email
+
+        if (
+            !Siswa::where('email', $input['email'])->exists() &&
+            !Guru::where('email', $input['email'])->exists()
+        ) {
             throw ValidationException::withMessages([
-                'email' => 'Email ini tidak terdaftar sebagai siswa'
+                'email' => 'Email ini tidak terdaftar sebagai siswa atau guru'
             ]);
         }
 
